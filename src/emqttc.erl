@@ -105,7 +105,7 @@
                 inflight_reqs = #{} :: map(),
                 inflight_msgid      :: pos_integer(),
                 auto_resub = false  :: boolean(),
-                keepalive           :: emqttc_keepalive:keepalive() | undefined,
+                keepalive = 3       :: emqttc_keepalive:keepalive() | undefined,
                 keepalive_after     :: non_neg_integer(),
                 connack_timeout     :: pos_integer(),
                 puback_timeout      :: pos_integer(),
