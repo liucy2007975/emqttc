@@ -51,7 +51,7 @@
 %%------------------------------------------------------------------------------
 %% Default Keepalive Timeout(secs)
 %%------------------------------------------------------------------------------
--define(KEEPALIVE, 10).
+-define(KEEPALIVE, 90).
 
 %%------------------------------------------------------------------------------
 %% Max ClientId Length. Why 1024? NiDongDe!
@@ -136,7 +136,7 @@
     will_qos    = ?QOS_0            :: mqtt_qos(),
     will_flag   = false             :: boolean(),
     clean_sess  = false             :: boolean(),
-    keep_alive  = 10                :: non_neg_integer(),
+    keep_alive  = 30                 :: non_neg_integer(),
     will_topic  = undefined         :: undefined | binary(),
     will_msg    = undefined         :: undefined | binary(),
     username    = undefined         :: undefined | binary(),
