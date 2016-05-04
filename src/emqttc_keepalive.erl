@@ -64,9 +64,11 @@ start(KeepAlive = #keepalive{socket = Socket, stat_name = StatName,
                              timeout_msg = TimeoutMsg}) ->
     case emqttc_socket:getstat(Socket, [StatName]) of
         {ok, [{StatName, StatVal}]} ->
+             io:format("client ~p send keepalived status: ~p~n", [Socket,StatName]),
             Ref = erlang:send_after(TimeoutSec*1000, self(), TimeoutMsg),
             {ok, KeepAlive#keepalive{stat_val = StatVal, timer_ref = Ref}};
         {error, Error} ->
+          io:format("client ~p send keepalived error ~p~n", [Socket,Error]),
             {error, Error}
     end.
 
