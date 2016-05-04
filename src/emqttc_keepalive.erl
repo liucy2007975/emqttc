@@ -29,7 +29,7 @@
 -record(keepalive, {socket,
                     stat_name,
                     stat_val = 0,
-                    timeout_sec,
+                    timeout_sec =10,
                     timeout_msg,
                     timer_ref}).
 
