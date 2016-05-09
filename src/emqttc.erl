@@ -824,6 +824,7 @@ handle_info({keepalive, timeout}, connected, State = #state{proto_state = ProtoS
                     {stop, {shutdown, Error}, State}
             end;
         {resumed, NewKeepAlive} ->
+            emqttc_protocol:ping(ProtoState),
             next_state(connected, State#state{keepalive = NewKeepAlive});
         {error, Error} ->
             {stop, {shutdown, Error}, State}
